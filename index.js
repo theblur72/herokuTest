@@ -1,7 +1,7 @@
 var bodyParser = require('body-parser');
 
 var express = require('express');
-//const PORT = process.env.PORT;
+const PORT = process.env.PORT||3000;
 var app = express();
 app.use(bodyParser.urlencoded({ extended:true }));
 var router = require('./router/main')(app);
@@ -17,7 +17,7 @@ app.engine('html', require('ejs').renderFile);
 
 
 
-var server = app.listen(3000, function(){
+var server = app.listen(PORT, function(){
     console.log("Express server has started on port 3000")
 })
 
